@@ -22,7 +22,7 @@ const payForReservation = catchAsync(async (req, res) => {
   const start = new Date(reservation.startTime);
   const end = new Date(endTime);
 
-  const duration = Math.ceil(Math.abs(end - start)) / (1000 * 3600);
+  const duration = Math.ceil(Math.abs((end - start) / (1000 * 3600)));
 
   const amount = parkingLot.amountPerHr * duration;
 
