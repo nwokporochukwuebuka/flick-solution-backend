@@ -28,7 +28,7 @@ const findAllReservation = async (filter, options) => {
 };
 
 const fetchUserReservation = async (userId) => {
-  return await Reservation.find({ user: userId });
+  return await Reservation.find({ user: userId, completed: false });
 };
 
 const getReservation = async (id) => {
