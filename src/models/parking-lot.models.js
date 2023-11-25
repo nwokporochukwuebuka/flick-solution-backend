@@ -37,6 +37,8 @@ const parkingLotSchema = mongoose.Schema(
     imgUrl: {
       type: String,
     },
+    openTime: { type: Date },
+    closeTime: { type: Date },
     imgPublicId: {
       type: String,
     },
