@@ -27,8 +27,9 @@ const findAllReservation = async (filter, options) => {
   return await Reservation.paginate(filter, options);
 };
 
-const fetchUserReservation = async (userId) => {
-  return await Reservation.find({ user: userId, completed: false });
+const fetchUserReservation = async (userId, filter, options) => {
+  return await Reservation.paginate(filter, options);
+  // return await Reservation.find({ user: userId, completed: });
 };
 
 const getReservation = async (id) => {

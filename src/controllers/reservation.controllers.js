@@ -81,7 +81,9 @@ const confirmReservation = catchAsync(async (req, res) => {
 });
 
 const fetchUsersReservations = catchAsync(async (req, res) => {
-  const reservations = await reservationService.fetchUserReservation(req.user.id);
+  const filter = pick(req.query, ['completed', 'isPaid', 'amount', 'duration']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const reservations = await reservationService.fetchUserReservation(req.user.id, filter, options);
   if (!reservations) throw new ApiError(httpStatus.NOT_FOUND, 'This reservation does not exist');
   return res.status(200).send(reservations);
 });
